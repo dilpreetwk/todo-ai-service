@@ -17,7 +17,7 @@ jobs:
           release_branches: master
           tag_prefix: "v"
           default_bump: false
-          custom_tag: |
+          custom_tag_rules: |
             #major: major
             #minor: minor
             #patch: patch
