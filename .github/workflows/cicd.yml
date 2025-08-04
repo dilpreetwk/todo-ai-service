@@ -21,16 +21,6 @@ jobs:
 
   unit-tests:
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          MYSQL_ROOT_PASSWORD: qwerty123
-          MYSQL_DATABASE: java_springboot_todo_app
-          MYSQL_USER: dbmaster
-          MYSQL_PASSWORD: qwerty123
-        ports:
-          - 3306:3306
     steps:
       - uses: actions/checkout@v4
 
