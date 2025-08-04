@@ -16,7 +16,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           release_branches: master
           tag_prefix: "v"
-          default_bump: false
 
   unit-tests:
     runs-on: ubuntu-latest
