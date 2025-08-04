@@ -1,0 +1,28 @@
+# Maven output
+target/
+
+# Gradle output
+build/
+
+# IntelliJ / Eclipse / VSCode / NetBeans
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
+
+# Git
+.git
+.gitignore
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Docker
+Dockerfile
+docker-compose.yml
