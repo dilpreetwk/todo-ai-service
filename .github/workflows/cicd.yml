@@ -96,3 +96,29 @@ jobs:
           docker build -t $IMAGE_NAME:$VERSION .
           docker push $IMAGE_NAME:$VERSION
 
+  upload-artifact:
+    runs-on: ubuntu-latest
+    needs: [build-release, set-version, unit-tests]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: "temurin"
+
+      - name: Set Version and Build JAR
+        run: |
+          VERSION=${{ needs.set-version.outputs.version }}
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          mvn versions:set -DnewVersion=$VERSION
+          mvn clean package -DskipTests
+
+      - name: Deploy to JFrog Artifactory
+        run: |
+          mvn deploy -DskipTests \
+            -DaltDeploymentRepository=artifactory::default::${{ secrets.ARTIFACTORY_URL }}/${{ secrets.ARTIFACTORY_REPO }}
+        env:
+          MAVEN_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
