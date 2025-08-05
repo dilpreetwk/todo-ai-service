@@ -99,7 +99,7 @@
       <snapshotRepository>
           <id>snapshots</id>
           <name>a0dl36figr4sc-artifactory-primary-0-snapshots</name>
-          <url>https://dilpreetwk.jfrog.io/artifactory/todo-microservice-libs-snapshot</url>
+          <url>https://dilpreetwk.jfrog.io/artifactory/todo-micro-service-libs-snapshot</url>
       </snapshotRepository>
     </distributionManagement>
 </project>
