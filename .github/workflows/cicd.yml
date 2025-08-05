@@ -107,8 +107,7 @@ jobs:
 
       - name: Deploy to JFrog Artifactory
         run: |
-          mvn deploy -DskipTests \
-            -DaltDeploymentRepository=artifactory::default::${{ secrets.ARTIFACTORY_URL }}/${{ secrets.ARTIFACTORY_REPO }}
+          mvn deploy 
         env:
           MAVEN_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
